@@ -158,8 +158,9 @@ static void LwipTask(void *pvParameters)
         ethernetif_input(&fsl_netif0);
 
         /* Handle all system timeouts for all core protocols */
+#if (USE_RTOS== 0)
         sys_check_timeouts();
-
+#endif
         /* Print DHCP progress */
         print_dhcp_state(&fsl_netif0);
     }
