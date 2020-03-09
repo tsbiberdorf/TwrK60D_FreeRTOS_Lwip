@@ -28,7 +28,7 @@ TaskHandle_t  tl_LwipTaskHandlerId = NULL;
 const char *LwipTaskName = "lwip";
 
 
-//#include "lwip/opt.h"
+#include "lwip/opt.h"
 
 #if LWIP_IPV4 && LWIP_DHCP
 

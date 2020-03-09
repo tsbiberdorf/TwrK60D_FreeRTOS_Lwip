@@ -67,12 +67,15 @@ void vApplicationMallocFailedHook()
  */
 int main(void) {
 
-  	/* Init board hardware. */
-    BOARD_InitBootPins();
+    SYSMPU_Type *base = SYSMPU;
+    BOARD_InitPins();
     BOARD_InitBootClocks();
     BOARD_InitBootPeripherals();
   	/* Init FSL debug console. */
     BOARD_InitDebugConsole();
+    /* Disable SYSMPU. */
+    base->CESR &= ~SYSMPU_CESR_VLD_MASK;
+
 
     PRINTF("Hello World\n");
     StartLwipTask();
