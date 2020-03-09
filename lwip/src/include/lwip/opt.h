@@ -2724,7 +2724,7 @@
  * UDP_DEBUG: Enable debugging in UDP.
  */
 #if !defined UDP_DEBUG || defined __DOXYGEN__
-#define UDP_DEBUG                       LWIP_DBG_OFF
+#define UDP_DEBUG                       LWIP_DBG_ON
 #endif
 
 /**
@@ -2745,7 +2745,7 @@
  * DHCP_DEBUG: Enable debugging in dhcp.c.
  */
 #if !defined DHCP_DEBUG || defined __DOXYGEN__
-#define DHCP_DEBUG                      LWIP_DBG_OFF
+#define DHCP_DEBUG                      LWIP_DBG_ON
 #endif
 
 /**
