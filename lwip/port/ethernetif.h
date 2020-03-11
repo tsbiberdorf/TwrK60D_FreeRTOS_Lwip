@@ -92,19 +92,19 @@
 #define configMAC_ADDR0 0x00
 #endif
 #ifndef configMAC_ADDR1
-#define configMAC_ADDR1 0x12
+#define configMAC_ADDR1 0x21
 #endif
 #ifndef configMAC_ADDR2
-#define configMAC_ADDR2 0x13
+#define configMAC_ADDR2 0x6f
 #endif
 #ifndef configMAC_ADDR3
-#define configMAC_ADDR3 0x10
+#define configMAC_ADDR3 0x50
 #endif
 #ifndef configMAC_ADDR4
-#define configMAC_ADDR4 0x15
+#define configMAC_ADDR4 0x50
 #endif
 #ifndef configMAC_ADDR5
-#define configMAC_ADDR5 0x11
+#define configMAC_ADDR5 0x01
 #endif
 
 #define ENET_OK             (0U)
@@ -113,7 +113,7 @@
 
 /* ENET IRQ priority. Used in FreeRTOS. */
 #ifndef ENET_PRIORITY
-    #define ENET_PRIORITY       (6U)
+    #define ENET_PRIORITY       (10U)
 #endif
 #ifndef ENET_1588_PRIORITY
     #define ENET_1588_PRIORITY  (5U)
