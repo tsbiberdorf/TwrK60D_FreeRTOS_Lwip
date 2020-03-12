@@ -8,12 +8,12 @@
 !!GlobalInfo
 product: Peripherals v7.0
 processor: MK60DN512xxx10
-package_id: MK60DN512VMD10
+package_id: MK60DN512VLL10
 mcu_data: ksdk2_0
 processor_version: 7.0.1
 functionalGroups:
 - name: BOARD_InitPeripherals
-  UUID: 97c8cf57-74b3-4ca6-b11e-8161fae5681c
+  UUID: 85423519-580b-491e-8168-0a295d2da20f
   called_from_default_init: true
   selectedCore: core0
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/

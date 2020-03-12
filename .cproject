@@ -675,7 +675,7 @@
 		<sdkVersion>2.2.0</sdkVersion>
 		<sdkComponents>middleware.freertos.MK60D10;middleware.template_application.freertos.MK60D10;platform.drivers.clock.MK60D10;platform.Include_common;platform.drivers.common.MK60D10;platform.drivers.uart.MK60D10;platform.utilities.debug_console.MK60D10;platform.drivers.flash.MK60D10;platform.drivers.gpio.MK60D10;platform.drivers.port.MK60D10;platform.drivers.smc.MK60D10;startup;CMSIS_Include;project_template.twrk60d100m.MK60D10;platform.devices.MK60D10_startup.MK60D10;platform.drivers.enet.MK60D10;</sdkComponents>
 		<boardId>twrk60d100m</boardId>
-		<package>MK60DN512VMD10</package>
+		<package>MK60DN512VLL10</package>
 		<core>cm4</core>
 		<coreId>core0_MK60DN512xxx10</coreId>
 	</storageModule>

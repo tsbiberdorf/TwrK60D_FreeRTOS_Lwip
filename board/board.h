@@ -105,6 +105,14 @@
 /*! @brief The rtc instance used for rtc_func */
 #define BOARD_RTC_FUNC_BASEADDR RTC
 
+/*! @brief Define the port interrupt number for the board switches */
+#define BOARD_SW1_GPIO GPIOA
+#define BOARD_SW1_PORT PORTA
+#define BOARD_SW1_GPIO_PIN 19U
+#define BOARD_SW1_IRQ PORTA_IRQn
+#define BOARD_SW1_IRQ_HANDLER PORTA_IRQHandler
+#define BOARD_SW1_NAME "SW1"
+
 /* Board led color mapping */
 #define LOGIC_LED_ON 0U
 #define LOGIC_LED_OFF 1U

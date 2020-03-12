@@ -9,7 +9,7 @@
 !!GlobalInfo
 product: Pins v7.0
 processor: MK60DN512xxx10
-package_id: MK60DN512VMD10
+package_id: MK60DN512VLL10
 mcu_data: ksdk2_0
 processor_version: 7.0.1
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
@@ -37,20 +37,20 @@ void BOARD_InitBootPins(void)
 BOARD_InitPins:
 - options: {callFromInitBoot: 'true', coreID: core0, enableClock: 'true'}
 - pin_list:
-  - {pin_num: D3, peripheral: UART1, signal: TX, pin_signal: ADC1_SE4a/PTE0/SPI1_PCS1/UART1_TX/SDHC0_D1/I2C1_SDA/RTC_CLKOUT}
-  - {pin_num: D2, peripheral: UART1, signal: RX, pin_signal: ADC1_SE5a/PTE1/LLWU_P0/SPI1_SOUT/UART1_RX/SDHC0_D0/I2C1_SCL/SPI1_SIN}
-  - {pin_num: K9, peripheral: ENET, signal: RMII_RXD1, pin_signal: CMP2_IN0/PTA12/CAN0_TX/FTM1_CH0/RMII0_RXD1/MII0_RXD1/I2S0_TXD0/FTM1_QD_PHA}
-  - {pin_num: J9, peripheral: ENET, signal: RMII_RXD0, pin_signal: CMP2_IN1/PTA13/LLWU_P4/CAN0_RX/FTM1_CH1/RMII0_RXD0/MII0_RXD0/I2S0_TX_FS/FTM1_QD_PHB}
-  - {pin_num: L10, peripheral: ENET, signal: RMII_CRS_DV, pin_signal: PTA14/SPI0_PCS0/UART0_TX/RMII0_CRS_DV/MII0_RXDV/I2S0_RX_BCLK/I2S0_TXD1}
-  - {pin_num: L11, peripheral: ENET, signal: rmii_txen, pin_signal: PTA15/SPI0_SCK/UART0_RX/RMII0_TXEN/MII0_TXEN/I2S0_RXD0}
-  - {pin_num: K10, peripheral: ENET, signal: RMII_TXD0, pin_signal: PTA16/SPI0_SOUT/UART0_CTS_b/UART0_COL_b/RMII0_TXD0/MII0_TXD0/I2S0_RX_FS/I2S0_RXD1}
-  - {pin_num: K11, peripheral: ENET, signal: RMII_TXD1, pin_signal: ADC1_SE17/PTA17/SPI0_SIN/UART0_RTS_b/RMII0_TXD1/MII0_TXD1/I2S0_MCLK}
-  - {pin_num: H9, peripheral: ENET, signal: RMII_MDC, pin_signal: ADC0_SE9/ADC1_SE9/TSI0_CH6/PTB1/I2C0_SDA/FTM1_CH1/RMII0_MDC/MII0_MDC/FTM1_QD_PHB}
-  - {pin_num: H10, peripheral: ENET, signal: RMII_MDIO, pin_signal: ADC0_SE8/ADC1_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/FTM1_CH0/RMII0_MDIO/MII0_MDIO/FTM1_QD_PHA, slew_rate: fast,
+  - {pin_num: '1', peripheral: UART1, signal: TX, pin_signal: ADC1_SE4a/PTE0/SPI1_PCS1/UART1_TX/SDHC0_D1/I2C1_SDA/RTC_CLKOUT}
+  - {pin_num: '2', peripheral: UART1, signal: RX, pin_signal: ADC1_SE5a/PTE1/LLWU_P0/SPI1_SOUT/UART1_RX/SDHC0_D0/I2C1_SCL/SPI1_SIN}
+  - {pin_num: '42', peripheral: ENET, signal: MII_RXD1, pin_signal: CMP2_IN0/PTA12/CAN0_TX/FTM1_CH0/RMII0_RXD1/MII0_RXD1/I2S0_TXD0/FTM1_QD_PHA}
+  - {pin_num: '43', peripheral: ENET, signal: MII_RXD0, pin_signal: CMP2_IN1/PTA13/LLWU_P4/CAN0_RX/FTM1_CH1/RMII0_RXD0/MII0_RXD0/I2S0_TX_FS/FTM1_QD_PHB}
+  - {pin_num: '44', peripheral: ENET, signal: MII_RXDV, pin_signal: PTA14/SPI0_PCS0/UART0_TX/RMII0_CRS_DV/MII0_RXDV/I2S0_RX_BCLK/I2S0_TXD1}
+  - {pin_num: '45', peripheral: ENET, signal: mii_txen, pin_signal: PTA15/SPI0_SCK/UART0_RX/RMII0_TXEN/MII0_TXEN/I2S0_RXD0}
+  - {pin_num: '46', peripheral: ENET, signal: MII_TXD0, pin_signal: PTA16/SPI0_SOUT/UART0_CTS_b/UART0_COL_b/RMII0_TXD0/MII0_TXD0/I2S0_RX_FS/I2S0_RXD1}
+  - {pin_num: '47', peripheral: ENET, signal: MII_TXD1, pin_signal: ADC1_SE17/PTA17/SPI0_SIN/UART0_RTS_b/RMII0_TXD1/MII0_TXD1/I2S0_MCLK}
+  - {pin_num: '54', peripheral: ENET, signal: MII_MDC, pin_signal: ADC0_SE9/ADC1_SE9/TSI0_CH6/PTB1/I2C0_SDA/FTM1_CH1/RMII0_MDC/MII0_MDC/FTM1_QD_PHB}
+  - {pin_num: '53', peripheral: ENET, signal: MII_MDIO, pin_signal: ADC0_SE8/ADC1_SE8/TSI0_CH0/PTB0/LLWU_P5/I2C0_SCL/FTM1_CH0/RMII0_MDIO/MII0_MDIO/FTM1_QD_PHA, slew_rate: fast,
     open_drain: enable, pull_select: down, pull_enable: disable, passive_filter: disable, drive_strength: low}
-  - {pin_num: M11, peripheral: GPIOA, signal: 'GPIO, 19', pin_signal: XTAL0/PTA19/FTM1_FLT0/FTM_CLKIN1/LPTMR0_ALT1, slew_rate: fast, open_drain: disable, pull_select: up,
-    pull_enable: enable, passive_filter: disable, drive_strength: low}
-  - {pin_num: L9, peripheral: GPIOA, signal: 'GPIO, 11', pin_signal: PTA11/FTM2_CH1/MII0_RXCLK/FTM2_QD_PHB}
+  - {pin_num: '33', peripheral: ENET, signal: CLKIN_1588, pin_signal: PTE26/ENET_1588_CLKIN/UART4_CTS_b/RTC_CLKOUT/USB_CLKIN}
+  - {pin_num: '50', peripheral: OSC, signal: EXTAL0, pin_signal: EXTAL0/PTA18/FTM0_FLT2/FTM_CLKIN0}
+  - {pin_num: '51', peripheral: OSC, signal: XTAL0, pin_signal: XTAL0/PTA19/FTM1_FLT0/FTM_CLKIN1/LPTMR0_ALT1}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -70,69 +70,58 @@ void BOARD_InitPins(void)
     /* Port E Clock Gate Control: Clock enabled */
     CLOCK_EnableClock(kCLOCK_PortE);
 
-    /* PORTA11 (pin L9) is configured as PTA11 */
-    PORT_SetPinMux(PORTA, 11U, kPORT_MuxAsGpio);
-
-    /* PORTA12 (pin K9) is configured as RMII0_RXD1 */
+    /* PORTA12 (pin 42) is configured as MII0_RXD1 */
     PORT_SetPinMux(PORTA, 12U, kPORT_MuxAlt4);
 
-    /* PORTA13 (pin J9) is configured as RMII0_RXD0 */
+    /* PORTA13 (pin 43) is configured as MII0_RXD0 */
     PORT_SetPinMux(PORTA, 13U, kPORT_MuxAlt4);
 
-    /* PORTA14 (pin L10) is configured as RMII0_CRS_DV */
+    /* PORTA14 (pin 44) is configured as MII0_RXDV */
     PORT_SetPinMux(PORTA, 14U, kPORT_MuxAlt4);
 
-    /* PORTA15 (pin L11) is configured as RMII0_TXEN */
+    /* PORTA15 (pin 45) is configured as MII0_TXEN */
     PORT_SetPinMux(PORTA, 15U, kPORT_MuxAlt4);
 
-    /* PORTA16 (pin K10) is configured as RMII0_TXD0 */
+    /* PORTA16 (pin 46) is configured as MII0_TXD0 */
     PORT_SetPinMux(PORTA, 16U, kPORT_MuxAlt4);
 
-    /* PORTA17 (pin K11) is configured as RMII0_TXD1 */
+    /* PORTA17 (pin 47) is configured as MII0_TXD1 */
     PORT_SetPinMux(PORTA, 17U, kPORT_MuxAlt4);
 
-    const port_pin_config_t porta19_pinM11_config = {/* Internal pull-up resistor is enabled */
-                                                     kPORT_PullUp,
-                                                     /* Fast slew rate is configured */
-                                                     kPORT_FastSlewRate,
-                                                     /* Passive filter is disabled */
-                                                     kPORT_PassiveFilterDisable,
-                                                     /* Open drain is disabled */
-                                                     kPORT_OpenDrainDisable,
-                                                     /* Low drive strength is configured */
-                                                     kPORT_LowDriveStrength,
-                                                     /* Pin is configured as PTA19 */
-                                                     kPORT_MuxAsGpio,
-                                                     /* Pin Control Register fields [15:0] are not locked */
-                                                     kPORT_UnlockRegister};
-    /* PORTA19 (pin M11) is configured as PTA19 */
-    PORT_SetPinConfig(PORTA, 19U, &porta19_pinM11_config);
+    /* PORTA18 (pin 50) is configured as EXTAL0 */
+    PORT_SetPinMux(PORTA, 18U, kPORT_PinDisabledOrAnalog);
 
-    const port_pin_config_t portb0_pinH10_config = {/* Internal pull-up/down resistor is disabled */
-                                                    kPORT_PullDisable,
-                                                    /* Fast slew rate is configured */
-                                                    kPORT_FastSlewRate,
-                                                    /* Passive filter is disabled */
-                                                    kPORT_PassiveFilterDisable,
-                                                    /* Open drain is enabled */
-                                                    kPORT_OpenDrainEnable,
-                                                    /* Low drive strength is configured */
-                                                    kPORT_LowDriveStrength,
-                                                    /* Pin is configured as RMII0_MDIO */
-                                                    kPORT_MuxAlt4,
-                                                    /* Pin Control Register fields [15:0] are not locked */
-                                                    kPORT_UnlockRegister};
-    /* PORTB0 (pin H10) is configured as RMII0_MDIO */
-    PORT_SetPinConfig(PORTB, 0U, &portb0_pinH10_config);
+    /* PORTA19 (pin 51) is configured as XTAL0 */
+    PORT_SetPinMux(PORTA, 19U, kPORT_PinDisabledOrAnalog);
 
-    /* PORTB1 (pin H9) is configured as RMII0_MDC */
+    const port_pin_config_t portb0_pin53_config = {/* Internal pull-up/down resistor is disabled */
+                                                   kPORT_PullDisable,
+                                                   /* Fast slew rate is configured */
+                                                   kPORT_FastSlewRate,
+                                                   /* Passive filter is disabled */
+                                                   kPORT_PassiveFilterDisable,
+                                                   /* Open drain is enabled */
+                                                   kPORT_OpenDrainEnable,
+                                                   /* Low drive strength is configured */
+                                                   kPORT_LowDriveStrength,
+                                                   /* Pin is configured as MII0_MDIO */
+                                                   kPORT_MuxAlt4,
+                                                   /* Pin Control Register fields [15:0] are not locked */
+                                                   kPORT_UnlockRegister};
+    /* PORTB0 (pin 53) is configured as MII0_MDIO */
+    PORT_SetPinConfig(PORTB, 0U, &portb0_pin53_config);
+
+    /* PORTB1 (pin 54) is configured as MII0_MDC */
     PORT_SetPinMux(PORTB, 1U, kPORT_MuxAlt4);
 
-    /* PORTE0 (pin D3) is configured as UART1_TX */
+    /* PORTE0 (pin 1) is configured as UART1_TX */
     PORT_SetPinMux(PORTE, 0U, kPORT_MuxAlt3);
 
-    /* PORTE1 (pin D2) is configured as UART1_RX */
+    /* PORTE1 (pin 2) is configured as UART1_RX */
     PORT_SetPinMux(PORTE, 1U, kPORT_MuxAlt3);
+
+    /* PORTE26 (pin 33) is configured as ENET_1588_CLKIN */
+    PORT_SetPinMux(PORTE, 26U, kPORT_MuxAlt2);
 
     SIM->SOPT5 = ((SIM->SOPT5 &
                    /* Mask bits to zero which are setting */

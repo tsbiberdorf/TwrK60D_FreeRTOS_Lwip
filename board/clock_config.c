@@ -35,7 +35,7 @@
 !!GlobalInfo
 product: Clocks v7.0
 processor: MK60DN512xxx10
-package_id: MK60DN512VMD10
+package_id: MK60DN512VLL10
 mcu_data: ksdk2_0
 processor_version: 7.0.1
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
@@ -50,6 +50,7 @@ processor_version: 7.0.1
 #define MCG_PLL_DISABLE                                   0U  /*!< MCGPLLCLK disabled */
 #define OSC_CAP0P                                         0U  /*!< Oscillator 0pF capacitor load */
 #define OSC_ER_CLK_DISABLE                                0U  /*!< Disable external reference clock */
+#define SIM_ENET_RMII_CLK_SEL_CLKIN_CLK                   1U  /*!< SDHC clock select: CLKIN (External bypass clock) */
 #define SIM_OSC32KSEL_RTC32KCLK_CLK                       2U  /*!< OSC32KSEL select: RTC32KCLK clock (32.768kHz) */
 #define SIM_PLLFLLSEL_MCGFLLCLK_CLK                       0U  /*!< PLLFLL select: MCGFLLCLK clock */
 #define SIM_PLLFLLSEL_MCGPLLCLK_CLK                       1U  /*!< PLLFLL select: MCGPLLCLK clock */
@@ -97,10 +98,11 @@ outputs:
 - {id: Flash_clock.outFreq, value: 24 MHz}
 - {id: FlexBus_clock.outFreq, value: 48 MHz}
 - {id: LPO_clock.outFreq, value: 1 kHz}
-- {id: MCGFFCLK.outFreq, value: 1.5625 MHz}
+- {id: MCGFFCLK.outFreq, value: 750 kHz}
 - {id: MCGIRCLK.outFreq, value: 32.768 kHz}
-- {id: OSCERCLK.outFreq, value: 50 MHz}
+- {id: OSCERCLK.outFreq, value: 24 MHz}
 - {id: PLLFLLCLK.outFreq, value: 96 MHz}
+- {id: RMIICLK.outFreq, value: 50 MHz}
 - {id: System_clock.outFreq, value: 96 MHz}
 settings:
 - {id: MCGMode, value: PEE}
@@ -108,9 +110,9 @@ settings:
 - {id: MCG.FRDIV.scale, value: '32', locked: true}
 - {id: MCG.IREFS.sel, value: MCG.FRDIV}
 - {id: MCG.PLLS.sel, value: MCG.PLL}
-- {id: MCG.PRDIV.scale, value: '25'}
-- {id: MCG.VDIV.scale, value: '48'}
+- {id: MCG.PRDIV.scale, value: '6'}
 - {id: MCG_C1_IRCLKEN_CFG, value: Enabled}
+- {id: MCG_C2_OSC_MODE_CFG, value: ModeOscLowPower}
 - {id: MCG_C2_RANGE0_CFG, value: Very_high}
 - {id: MCG_C2_RANGE0_FRDIV_CFG, value: Very_high}
 - {id: OSC_CR_ERCLKEN_CFG, value: Enabled}
@@ -125,7 +127,8 @@ settings:
 - {id: SIM.RMIICLKSEL.sel, value: SIM.ENET_1588_CLK_EXT}
 - {id: SIM.SDHCSRCSEL.sel, value: OSC.OSCERCLK}
 sources:
-- {id: OSC.OSC.outFreq, value: 50 MHz, enabled: true}
+- {id: OSC.OSC.outFreq, value: 24 MHz, enabled: true}
+- {id: SIM.ENET_1588_CLK_EXT.outFreq, value: 50 MHz, enabled: true}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS **********/
 /* clang-format on */
 
@@ -145,8 +148,8 @@ const mcg_config_t mcgConfig_BOARD_BootClockRUN =
         .pll0Config =
             {
                 .enableMode = MCG_PLL_DISABLE,    /* MCGPLLCLK disabled */
-                .prdiv = 0x18U,                   /* PLL Reference divider: divided by 25 */
-                .vdiv = 0x18U,                    /* VCO divider: multiplied by 48 */
+                .prdiv = 0x5U,                    /* PLL Reference divider: divided by 6 */
+                .vdiv = 0x0U,                     /* VCO divider: multiplied by 24 */
             },
     };
 const sim_clock_config_t simConfig_BOARD_BootClockRUN =
@@ -157,9 +160,9 @@ const sim_clock_config_t simConfig_BOARD_BootClockRUN =
     };
 const osc_config_t oscConfig_BOARD_BootClockRUN =
     {
-        .freq = 50000000U,                        /* Oscillator frequency: 50000000Hz */
+        .freq = 24000000U,                        /* Oscillator frequency: 24000000Hz */
         .capLoad = (OSC_CAP0P),                   /* Oscillator capacity load: 0pF */
-        .workMode = kOSC_ModeExt,                 /* Use external clock */
+        .workMode = kOSC_ModeOscLowPower,         /* Oscillator low power */
         .oscerConfig =
             {
                 .enableMode = kOSC_ErClkEnable,   /* Enable external reference clock, disable external reference clock in STOP mode */
@@ -190,6 +193,8 @@ void BOARD_BootClockRUN(void)
     CLOCK_SetSimConfig(&simConfig_BOARD_BootClockRUN);
     /* Set SystemCoreClock variable. */
     SystemCoreClock = BOARD_BOOTCLOCKRUN_CORE_CLOCK;
+    /* Set RMII clock source. */
+    CLOCK_SetRmii0Clock(SIM_ENET_RMII_CLK_SEL_CLKIN_CLK);
 }
 
 /*******************************************************************************
